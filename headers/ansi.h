@@ -6,7 +6,7 @@
 #  endif /* !_STRING_H_ */
 
 char* ansi_col(char* name, char mode) {
-  char* res = "\033[00m";
+  char res[] = "\033[00m";
 
   switch (mode) {
     case 'f':
@@ -28,6 +28,6 @@ char* ansi_col(char* name, char mode) {
            (!strcmp(name, "black"))  ?'0':
            (mode == 'f')             ?'7':
                                       '0';
-  return res;
+  return (char*) res;
 }
 #endif /* !_ANSI_H_ */
